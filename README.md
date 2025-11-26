@@ -2,7 +2,7 @@
 
 A systemd service that significantly reduces disk I/O operations on Proxmox VE nodes by storing frequently-written data (pve-cluster configs and RRD statistics) in RAM instead of on disk.
 
-**Based on:** [pmxcfs-ram](https://github.com/isasmendiagus/pmxcfs-ram) by Agustin Santiago Isasmendi
+**Based on:** [pmxcfs-ram](https://github.com/isasmendiagus/pmxcfs-ram) by Agustin Isasmendi
 
 ## 🎯 Problem Statement
 
