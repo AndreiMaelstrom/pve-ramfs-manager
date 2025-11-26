@@ -77,7 +77,7 @@ For systems using consumer-grade NVMe/SSD drives, this constant writing can sign
 
 ### Prerequisites
 
-- Proxmox VE 7.x or 8.x
+- Proxmox VE >= 8.x (tested on 9.1, earlier versions might work but they haven't been tested!)
 - Root access
 - At least 500MB free RAM
 - Systemd-based system
@@ -86,7 +86,7 @@ For systems using consumer-grade NVMe/SSD drives, this constant writing can sign
 
 ```bash
 # Download the script
-wget -O /usr/local/bin/pve-ramfs-manager.sh https://raw.githubusercontent.com/yourusername/pve-ramfs-manager/main/pve-ramfs-manager.sh
+wget -O /usr/local/bin/pve-ramfs-manager.sh https://raw.githubusercontent.com/AndreiMaelstrom/pve-ramfs-manager/main/pve-ramfs-manager.sh
 
 # Make it executable
 chmod +x /usr/local/bin/pve-ramfs-manager.sh
@@ -121,7 +121,7 @@ RRDCACHED_PERSIST_INTERVAL=3600   # 1 hour (0 = only on shutdown)
 
 ```bash
 # Download service file
-wget -O /etc/systemd/system/pve-ramfs-manager.service https://raw.githubusercontent.com/yourusername/pve-ramfs-manager/main/pve-ramfs-manager.service
+wget -O /etc/systemd/system/pve-ramfs-manager.service https://raw.githubusercontent.com/AndreiMaelstrom/pve-ramfs-manager/main/pve-ramfs-manager.service
 
 # Reload systemd
 systemctl daemon-reload
