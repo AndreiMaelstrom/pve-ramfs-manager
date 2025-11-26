@@ -388,7 +388,7 @@ Contributions are welcome! Please:
 
 ## 🙏 Credits
 
-This project is based on [pmxcfs-ram](https://github.com/isasmendiagus/pmxcfs-ram) by [Agustin Santiago Isasmendi](https://github.com/isasmendiagus), which provides the original implementation for managing pmxcfs data in RAM.
+This project is based on [pmxcfs-ram](https://github.com/isasmendiagus/pmxcfs-ram) by [Agustin Isasmendi](https://github.com/isasmendiagus), which provides the original implementation for managing pmxcfs data in RAM.
 
 Key enhancements in this version:
 - Consolidated management of both pve-cluster and rrdcached
