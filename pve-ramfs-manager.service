@@ -9,27 +9,26 @@ Conflicts=shutdown.target
 [Service]
 Type=notify
 ExecStart=/usr/local/bin/pve-ramfs-manager.sh start
-ExecStop=/usr/local/bin/pve-ramfs-manager.sh stop
 NotifyAccess=all
-RemainAfterExit=yes
 TimeoutStartSec=60
 TimeoutStopSec=120
 
 # Ensure data is persisted before shutdown
 KillMode=process
 KillSignal=SIGTERM
+Restart=on-failure
+RestartSec=5s
 
 # Resource limits
 MemoryMax=1G
 TasksMax=10
 
-# Security hardening
-PrivateTmp=yes
-ProtectSystem=strict
-ProtectHome=yes
-ReadWritePaths=/var/lib/pve-cluster /var/lib/pve-cluster-persistent /var/lib/rrdcached/db /var/lib/rrdcached-persistent /dev/shm /var/log
-NoNewPrivileges=no
+# Runtime directory for lock file
+RuntimeDirectory=pve-ramfs-manager
+
+NoNewPrivileges=yes
 
 [Install]
 WantedBy=multi-user.target
-RequiredBy=pve-cluster.service rrdcached.service
+# Note: Before= in [Unit] section ensures proper ordering with pve-cluster and rrdcached
+# We don't use RequiredBy= to avoid blocking those services if this fails

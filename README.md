@@ -157,6 +157,9 @@ systemctl status pve-ramfs-manager.service
 
 # Check logs
 tail -f /var/log/pve-ramfs-manager.log
+
+# Leave pve-cluster.service and rrdcached.service enabled.
+# The manager stops and restarts them automatically during setup/teardown.
 ```
 
 ### Step 6: Verify Installation
@@ -285,8 +288,9 @@ systemctl start pve-ramfs-manager.service
 ### Data Not Persisting
 
 ```bash
-# Manually trigger persistence
-systemctl reload pve-ramfs-manager.service
+# Force an immediate persistence checkpoint (runs during graceful stop)
+systemctl stop pve-ramfs-manager.service
+systemctl start pve-ramfs-manager.service
 
 # Check disk space
 df -h /var/lib/
